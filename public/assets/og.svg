@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#1E293B"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.75" cy="0.2" r="0.7">
+      <stop offset="0" stop-color="#38BDF8" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#bg)"/>
+  <rect width="1200" height="1200" fill="url(#glow)"/>
+
+  <!-- identity dots (logo motif), centered above the wordmark -->
+  <circle cx="540" cy="430" r="26" fill="#38BDF8"/>
+  <circle cx="600" cy="430" r="26" fill="#34D399"/>
+  <circle cx="660" cy="430" r="26" fill="#FB923C"/>
+
+  <!-- wordmark -->
+  <text x="600" y="600" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="180" font-weight="800" letter-spacing="-8" fill="#F8FAFC">gity</text>
+
+  <!-- tagline -->
+  <text x="600" y="700" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="40" font-weight="600" fill="#E2E8F0">One machine. Every GitHub account. Zero mix-ups.</text>
+
+  <!-- install chip -->
+  <g transform="translate(385, 760)">
+    <rect x="0" y="0" width="430" height="74" rx="16" fill="#0B1120" stroke="#334155" stroke-width="2"/>
+    <text x="215" y="49" text-anchor="middle" font-family="'SF Mono', Menlo, monospace" font-size="30" fill="#F8FAFC"><tspan fill="#34D399">$ </tspan>npm i -g gity-tool</text>
+  </g>
+</svg>
