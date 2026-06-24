@@ -15,21 +15,21 @@ import { useEffect } from "react";
 type Line = { cls: string; text: string; html?: string; delay: number; pause: number };
 
 const LINES: Line[] = [
-  { cls: "l-cmd", text: "$ gity add", html: '<span class="p">$</span> gity add', delay: 26, pause: 360 },
-  { cls: "l-prompt", text: "◇ Profile name … work", delay: 16, pause: 260 },
-  { cls: "l-prompt", text: "◇ Email … jane@company.com", delay: 16, pause: 260 },
-  { cls: "l-prompt", text: "◇ Folder … ~/Development/work", delay: 16, pause: 260 },
-  { cls: "l-prompt", text: "◇ Generate SSH key? … Yes", delay: 16, pause: 340 },
+  { cls: "text-ink", text: "$ gity add", html: '<span class="text-emerald">$</span> gity add', delay: 26, pause: 360 },
+  { cls: "text-sky", text: "◇ Profile name … work", delay: 16, pause: 260 },
+  { cls: "text-sky", text: "◇ Email … jane@company.com", delay: 16, pause: 260 },
+  { cls: "text-sky", text: "◇ Folder … ~/Development/work", delay: 16, pause: 260 },
+  { cls: "text-sky", text: "◇ Generate SSH key? … Yes", delay: 16, pause: 340 },
   {
-    cls: "l-ok",
+    cls: "text-emerald",
     text: "✓ Done. Repos under ~/Development/work use jane@company.com automatically.",
     delay: 10,
     pause: 600,
   },
   { cls: "blank", text: "", delay: 0, pause: 200 },
-  { cls: "l-cmd", text: "$ gity test", html: '<span class="p">$</span> gity test', delay: 26, pause: 360 },
-  { cls: "l-ok", text: "✓ work — authenticated as jane-at-work", delay: 14, pause: 220 },
-  { cls: "l-ok", text: "✓ personal — authenticated as jane-personal", delay: 14, pause: 1600 },
+  { cls: "text-ink", text: "$ gity test", html: '<span class="text-emerald">$</span> gity test', delay: 26, pause: 360 },
+  { cls: "text-emerald", text: "✓ work — authenticated as jane-at-work", delay: 14, pause: 220 },
+  { cls: "text-emerald", text: "✓ personal — authenticated as jane-personal", delay: 14, pause: 1600 },
 ];
 
 function escapeHtml(s: string): string {
@@ -183,7 +183,8 @@ export function SiteInteractions() {
       const detectedTab = document.querySelector<HTMLElement>('.tab[data-os="' + detected + '"]');
       if (detectedTab && !detectedTab.querySelector(".tab__detected")) {
         const badge = document.createElement("span");
-        badge.className = "tab__detected";
+        badge.className =
+          "tab__detected rounded-[5px] bg-emerald/[0.12] px-1.5 py-0.5 text-[0.68rem] font-bold tracking-[0.04em] text-emerald mobile:hidden";
         badge.textContent = "detected";
         detectedTab.appendChild(badge);
       }
@@ -252,7 +253,8 @@ export function SiteInteractions() {
       if (prefersReduced) {
         term.innerHTML = staticHtml();
       } else {
-        const cursor = '<span class="cursor" aria-hidden="true"></span>';
+        const cursor =
+          '<span class="inline-block w-2 h-[1.05em] bg-sky align-text-bottom ml-px animate-blink" aria-hidden="true"></span>';
         let completed: string[] = [];
 
         const render = (index: number, inProgressHtml: string | null) => {

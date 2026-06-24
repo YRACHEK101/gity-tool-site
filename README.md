@@ -9,7 +9,7 @@ of the static build: identical design, copy, and interactions.
 ## Stack
 
 - **Next.js 14** (App Router) + **TypeScript** + **React 18**
-- Plain CSS design system (`app/globals.css`) — no Tailwind, no UI kit
+- **Tailwind CSS** — design tokens live in `tailwind.config.ts`; styling is utility-first in the markup
 - `next/font` for self-hosted Inter (UI) + JetBrains Mono (code)
 - Zero client UI dependencies; all interactions are vanilla DOM in one client effect
 
@@ -21,7 +21,8 @@ of the static build: identical design, copy, and interactions.
 | `app/page.tsx` | The full landing page (server component) |
 | `app/icons.tsx` | All inline SVG icons + the "how it works" diagram |
 | `app/site-interactions.tsx` | Client component: copy-to-clipboard, OS tabs, typing animation, scroll reveal, sticky header, mobile nav |
-| `app/globals.css` | Design system + responsive layout |
+| `tailwind.config.ts` | Design tokens (colors, fonts, breakpoints, animations) |
+| `app/globals.css` | Tailwind directives + base layer + a couple of component utilities |
 | `public/assets/*` | Logo, favicon, app icon, Open Graph image |
 
 ## Develop
