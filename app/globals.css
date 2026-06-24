@@ -621,6 +621,12 @@ kbd {
   font-size: 0.96rem;
 }
 
+/* Hold all text + chips as one flowing inline block (not separate flex items) */
+.ba-list li > span {
+  min-width: 0;
+  line-height: 1.55;
+}
+
 .ba-list li svg {
   width: 18px;
   height: 18px;
@@ -633,11 +639,22 @@ kbd {
 
 .ba-list code {
   color: var(--text);
-  background: var(--bg-900);
-  border: 1px solid var(--border);
-  padding: 0 5px;
+  background: rgba(148, 163, 184, 0.13);
+  padding: 1px 6px;
   border-radius: 5px;
-  font-size: 0.85em;
+  font-size: 0.84em;
+}
+
+/* Keep inline code chips intact so they never split mid-token across lines */
+.ba-list code,
+.hero__sub code,
+.step code,
+.tab-panel__note code,
+.install-note code,
+.usecase__caption code,
+.how__caption code,
+.feature code {
+  white-space: nowrap;
 }
 
 /* ---------- How it works ---------- */
@@ -1016,12 +1033,14 @@ kbd {
   margin: 10px 0 18px;
 }
 
-.cmd-card pre {
-  margin: auto 0 0;
+.cmd-card pre,
+.cmd-card .cmd-out {
+  margin: 18px 0 0;
   background: #0b1120;
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 14px;
+  font-family: var(--font-mono);
   font-size: 0.76rem;
   line-height: 1.7;
   overflow-x: auto;
@@ -1032,6 +1051,52 @@ kbd {
 .cmd-card pre .ok { color: var(--emerald); }
 .cmd-card pre .hl { color: var(--sky); }
 .cmd-card pre .or { color: var(--orange); }
+
+/* gity list — a CSS-bordered table (no box-drawing glyphs, so it never
+   mis-aligns when the mono font falls back for those characters) */
+.cmd-out__line {
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.cmd-out__line .p {
+  color: var(--emerald);
+}
+
+.term-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.96em;
+}
+
+.term-table th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 0 14px 7px 0;
+  white-space: nowrap;
+}
+
+.term-table td {
+  padding: 6px 14px 6px 0;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border-soft);
+  white-space: nowrap;
+}
+
+.term-table tbody tr:last-child td {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.term-table th:last-child,
+.term-table td:last-child {
+  padding-right: 0;
+}
+
+.term-table .hl { color: var(--sky); }
+.term-table .ok { color: var(--emerald); }
 
 /* ---------- Use case spotlight ---------- */
 .usecase {
@@ -1412,6 +1477,46 @@ kbd {
 
   .cta-band {
     padding: 44px 22px;
+  }
+
+  /* Install tabs: stack icon over label so all three fit comfortably */
+  .tabs__list {
+    gap: 2px;
+    padding: 6px;
+  }
+
+  .tab {
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 4px;
+    font-size: 0.82rem;
+  }
+
+  .tab svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .tab__detected {
+    display: none;
+  }
+
+  .tab-panel {
+    padding: 20px;
+  }
+
+  /* Slightly tighter cards on small screens */
+  .ba-card,
+  .step,
+  .cmd-card,
+  .feature {
+    padding: 22px 20px;
+  }
+
+  .ba-list code,
+  .cmd-card .cmd-out,
+  .cmd-card pre {
+    font-size: 0.74rem;
   }
 }
 

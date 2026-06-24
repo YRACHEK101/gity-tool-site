@@ -16,9 +16,10 @@ export function IconGitHub(props: IconProps) {
 }
 
 export function IconNpm(props: IconProps) {
+  // Official npm logo mark (simple-icons), renders crisp at small sizes.
   return (
     <svg {...base} fill="currentColor" {...props}>
-      <path d="M0 7.3v9.4h6.6v1.6h4.9v-1.6H24V7.3H0Zm6.6 7.8H4.9v-4.7H3.3v4.7H1.6V8.9h5v6.2Zm5 0H9.9v1.6H8.2V8.9h4.7v6.2h-1.3Zm0-4.7H9.9v3.1h1.7v-3.1Zm10.8 4.7h-1.6v-4.7h-1.7v4.7h-1.6v-4.7h-1.7v4.7h-1.6V8.9h8.2v6.2Z" />
+      <path d="M1.763 0C.786 0 0 .786 0 1.763v20.474C0 23.214.786 24 1.763 24h20.474c.977 0 1.763-.786 1.763-1.763V1.763C24 .786 23.214 0 22.237 0H1.763zM5.13 5.323l13.837.019-.009 13.836h-3.464l.01-10.382h-3.456L12.04 19.17H5.113L5.13 5.323z" />
     </svg>
   );
 }

@@ -192,17 +192,27 @@ export default function Home() {
                 <h3>Fragile, manual, easy to forget</h3>
                 <ul className="ba-list">
                   <li>
-                    <IconX /> Wrong-email commits leak your work identity into personal repos (and vice-versa).
+                    <IconX />
+                    <span>Wrong-email commits leak your work identity into personal repos (and vice-versa).</span>
                   </li>
                   <li>
-                    <IconX /> <code>Permission denied (publickey)</code> because the wrong SSH key is offered first.
+                    <IconX />
+                    <span>
+                      <code>Permission denied (publickey)</code> because the wrong SSH key is offered first.
+                    </span>
                   </li>
                   <li>
-                    <IconX /> Brittle <code>~/.ssh/config</code> host aliases like <code>git@github-work</code> you must
-                    remember to use.
+                    <IconX />
+                    <span>
+                      Brittle <code>~/.ssh/config</code> host aliases like <code>git@github-work</code> you must remember
+                      to use.
+                    </span>
                   </li>
                   <li>
-                    <IconX /> Running <code>git config user.email …</code> by hand in every single repo.
+                    <IconX />
+                    <span>
+                      Running <code>git config user.email …</code> by hand in every single repo.
+                    </span>
                   </li>
                 </ul>
               </article>
@@ -212,16 +222,24 @@ export default function Home() {
                 <h3>Decide once. It just works.</h3>
                 <ul className="ba-list">
                   <li>
-                    <IconCheck /> Decide once that a folder maps to an account — gity does the rest.
+                    <IconCheck />
+                    <span>Decide once that a folder maps to an account — gity does the rest.</span>
                   </li>
                   <li>
-                    <IconCheck /> gity wires <code>includeIf</code> + a dedicated SSH key per profile.
+                    <IconCheck />
+                    <span>
+                      gity wires <code>includeIf</code> + a dedicated SSH key per profile.
+                    </span>
                   </li>
                   <li>
-                    <IconCheck /> Keep using normal <code>git@github.com:owner/repo.git</code> URLs — no host aliases.
+                    <IconCheck />
+                    <span>
+                      Keep using normal <code>git@github.com:owner/repo.git</code> URLs — no host aliases.
+                    </span>
                   </li>
                   <li>
-                    <IconCheck /> The correct name, email, and key are selected automatically by location.
+                    <IconCheck />
+                    <span>The correct name, email, and key are selected automatically by location.</span>
                   </li>
                 </ul>
               </article>
@@ -500,18 +518,32 @@ export default function Home() {
                   A table of all profiles — their folders, emails, and SSH key status — so you can see your whole setup at
                   a glance.
                 </p>
-                <pre>
-                  <span className="p">$</span>
-                  {" gity list\n┌──────────┬───────────────────┬─────┐\n│ "}
-                  <span className="hl">work</span>
-                  {"     │ jane@company.com  │ "}
-                  <span className="ok">key</span>
-                  {" │\n│ "}
-                  <span className="hl">personal</span>
-                  {" │ jane@gmail.com    │ "}
-                  <span className="ok">key</span>
-                  {" │\n└──────────┴───────────────────┴─────┘"}
-                </pre>
+                <div className="cmd-out">
+                  <div className="cmd-out__line">
+                    <span className="p">$</span> gity list
+                  </div>
+                  <table className="term-table">
+                    <thead>
+                      <tr>
+                        <th>profile</th>
+                        <th>email</th>
+                        <th>key</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="hl">work</td>
+                        <td>jane@company.com</td>
+                        <td className="ok">✓ key</td>
+                      </tr>
+                      <tr>
+                        <td className="hl">personal</td>
+                        <td>jane@gmail.com</td>
+                        <td className="ok">✓ key</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </article>
 
               <article className="cmd-card reveal">
